@@ -1,0 +1,39 @@
+apiVersion: 2019-12-01
+location: northeurope
+name: AppGroup
+properties:
+  containers: 
+
+  - name: db
+    properties:
+      image: alexeiregistry.azurecr.io/i-customsql:v1
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      ports:
+      - port: 3306
+
+  - name: web
+    properties:
+      image: alexeiregistry.azurecr.io/sqlapp:latest
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      ports:
+      - port: 80   
+
+  osType: Linux
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: 80
+
+  imageRegistryCredentials:
+    - server: alexeiregistry.azurecr.io
+      username: alexeiregistry
+      password: xgKCAI8qsgdDRGcYgwIsuDtbImNP0fVSPIofLEz2EK+ACRDj73IP
+
+type: Microsoft.ContainerInstance/containerGroups

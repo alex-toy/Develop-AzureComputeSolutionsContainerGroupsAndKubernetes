@@ -1,0 +1,10 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h1>The name of the database linked to that app is : @Configuration["demoapp:Settings:dbbame"]</h1>
+</div>

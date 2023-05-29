@@ -57,3 +57,17 @@ az container create --resource-group alexeirg --file containersdb.yml
 
 - you should now see the container instance created and be able to connect to the db
 <img src="/pictures/container_group.png" title="container group"  width="900">
+
+### Deploying the application
+
+- on the ubuntu command prompt, cd to the folder containing *containersdb.yml* and run
+```
+cd /mnt/c/source/.../path/to/folder/.../containersdb.yml
+az container create --resource-group alexeirg --file containersapp.yml
+```
+
+- you should now see both container instances
+<img src="/pictures/container_group2.png" title="container group"  width="900">
+
+- and the app should be working and be able to retrieve data from the database
+<img src="/pictures/container_group3.png" title="container group"  width="900">
