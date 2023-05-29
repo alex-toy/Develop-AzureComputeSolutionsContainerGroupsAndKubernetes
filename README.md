@@ -23,8 +23,37 @@ mysql -u root -p
 - tag the image
 ```
 docker tag i-customsql dockeralexei/i-customsql:v1
+```
+
+- push the image to dockerhub
+```
 docker push dockeralexei/i-customsql:v1
 ```
 
 - the image is now hosted on dockerhub
 <img src="/pictures/dockerhub.png" title="image hosted on dockerhub"  width="900">
+```
+
+- push the image to *Azure Container Registry*
+```
+docker tag i-customsql alexeiregistry.azurecr.io/i-customsql:v1
+az acr login --name alexeiregistry
+docker push alexeiregistry.azurecr.io/i-customsql:v1
+```
+
+- the image is now hosted on azure
+<img src="/pictures/dockerhub2.png" title="image hosted on azure"  width="900">
+```
+
+### Deploying the database
+
+- grab the credential in the container registry in Azure and use them in the file *containersdb.yml*
+
+- on the ubuntu command prompt, cd to the folder containing *containersdb.yml* and run
+```
+cd /mnt/c/source/.../path/to/folder/.../containersdb.yml
+az container create --resource-group alexeirg --file containersdb.yml
+```
+
+- you should now see the container instance created and be able to connect to the db
+<img src="/pictures/container_group.png" title="container group"  width="900">

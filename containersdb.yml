@@ -5,7 +5,7 @@ properties:
   containers: 
   - name: db
     properties:
-      image: appregistry100012.azurecr.io/customsql:latest
+      image: alexeiregistry.azurecr.io/i-customsql:v1
       resources:
         requests:
           cpu: 1
@@ -14,7 +14,7 @@ properties:
       - port: 3306   
   osType: Linux
   imageRegistryCredentials:
-    - server: appregistry100012.azurecr.io
-      username: appregistry100012
-      password: oYS=UdwYHQEGuRWCzj/oI9=q04BEL04s
+    - server: alexeiregistry.azurecr.io
+      username: alexeiregistry
+      password: xgKCAI8qsgdDRGcYgwIsuDtbImNP0fVSPIofLEz2EK+ACRDj73IP
 type: Microsoft.ContainerInstance/containerGroups
