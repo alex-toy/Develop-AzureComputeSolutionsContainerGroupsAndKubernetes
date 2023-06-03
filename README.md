@@ -73,3 +73,19 @@ az container create --resource-group alexeirg --file containersapp.yml
 <img src="/pictures/container_group3.png" title="container group"  width="900">
 
 ### Persisting data
+
+- publish BlobService app to an **Azure Container Registry**
+
+- in your storage account, create a fileshare
+<img src="/pictures/persisting_data.png" title="persisting data"  width="900">
+
+- run 
+```
+az container create --resource-group alexeirg --file persistingData\containers.yml
+```
+
+- you should see the volume *filesharevolume* in the *AppGroup*
+<img src="/pictures/persisting_data2.png" title="persisting data"  width="900">
+
+- in the file share, you should see the *Courses.json*
+<img src="/pictures/persisting_data3.png" title="persisting data"  width="900">
