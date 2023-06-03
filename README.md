@@ -108,4 +108,10 @@ az container create --resource-group alexeirg --file useOfSecrets\containers.yml
 <img src="/pictures/using_secrets2.png" title="using secrets"  width="900">
 
 - in the file share *containershare*, you should see the *Courses.json*
-<img src="/pictures/using_secrets.png" title="using secrets"  width="900">
+<img src="/pictures/persisting_data3.png" title="persisting data"  width="900">
+
+
+## Kubernetes
+
+### Deploying an Azure Kubernetes Cluster
+
