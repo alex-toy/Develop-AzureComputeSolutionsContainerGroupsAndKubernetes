@@ -116,9 +116,24 @@ az container create --resource-group alexeirg --file useOfSecrets\containers.yml
 ### Deploying an Azure Kubernetes Cluster
 
 - create a *Kubernetes Cluster*. Choose the right registry.
-<img src="/pictures/kubernetes_cluster.png" title="kubernetes cluster"  width="900">
+<img src="/pictures/kubernetes_cluster.png" title="kubernetes cluster"  width="500">
 
 ### Deploying an Nginx server
 
-- on the *Workloads* section, 
+- on the *Workloads* section, create with *deploying_nginx\deployment.yml*
 <img src="/pictures/kubernetes_nginx.png" title="kubernetes nginx"  width="900">
+
+### Using a service
+
+- on the *Services and ingresses* section, create with *deploying_nginx\service.yml*
+<img src="/pictures/kubernetes_nginx2.png" title="kubernetes nginx"  width="900">
+
+- the nginx server is now available on the web
+<img src="/pictures/kubernetes_nginx3.png" title="kubernetes nginx"  width="900">
+
+### Deploying app and database service
+
+- run 
+```
+az container create --resource-group alexeirg --file deploying_nginx\containersapp.yml
+```
