@@ -1,0 +1,40 @@
+apiVersion: 2019-12-01
+location: northeurope
+name: AppGroup
+properties:
+  containers: 
+
+  - name: blob
+    properties:
+      image: alexeiregistry.azurecr.io/blobservicesecret:latest
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      volumeMounts:
+      - mountPath: /app/data
+        name: filesharevolume
+      - mountPath: /app/secrets
+        name: volumesecret 
+            
+  osType: Linux
+  restartPolicy: Never
+
+  volumes:
+
+  - name: volumesecret
+    secret:
+      storage-connection: RGVmYXVsdEVuZHBvaW50c1Byb3RvY29sPWh0dHBzO0FjY291bnROYW1lPXBlcnNzdGluZ2RhdGFzYTtBY2NvdW50S2V5PWxtRlFHNS9oc1F3Q3N1OGdVVjczUGtwVkNhK0ltbEJobng4N1d2L05MNk9HbVgyZEJBQW1zTFNyVnFnNGdXZGFiN1dtaTNWZDVsRU8rQVN0bUxURDdnPT07RW5kcG9pbnRTdWZmaXg9Y29yZS53aW5kb3dzLm5ldA==
+  
+  - name: filesharevolume
+    azureFile:
+      sharename: containershare
+      storageAccountName: persstingdatasa
+      storageAccountKey: lmFQG5/hsQwCsu8gUV73PkpVCa+ImlBhnx87Wv/NL6OGmX2dBAAmsLSrVqg4gWdab7Wmi3Vd5lEO+AStmLTD7g==
+
+  imageRegistryCredentials:
+    - server: alexeiregistry.azurecr.io
+      username: alexeiregistry
+      password: xgKCAI8qsgdDRGcYgwIsuDtbImNP0fVSPIofLEz2EK+ACRDj73IP
+
+type: Microsoft.ContainerInstance/containerGroups

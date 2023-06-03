@@ -87,5 +87,25 @@ az container create --resource-group alexeirg --file persistingData\containers.y
 - you should see the volume *filesharevolume* in the *AppGroup*
 <img src="/pictures/persisting_data2.png" title="persisting data"  width="900">
 
-- in the file share, you should see the *Courses.json*
+- in the file share *containershare*, you should see the *Courses.json*
 <img src="/pictures/persisting_data3.png" title="persisting data"  width="900">
+
+### Container Groups using secrets
+
+- publish BlobServiceSecret app to an **Azure Container Registry**
+<img src="/pictures/using_secrets.png" title="using secrets"  width="900">
+
+- grab the connection string of the storage account and paste it into *useOfSecrets\encode.ps1*
+
+- run *useOfSecrets\encode.ps1* in order to encrypt the connection sting, and use the result in *containers.yml* for *volumesecret*
+
+- run 
+```
+az container create --resource-group alexeirg --file useOfSecrets\containers.yml
+```
+
+- you should see the volume *filesharevolume* and *volumesecret* in the *AppGroup*
+<img src="/pictures/using_secrets2.png" title="using secrets"  width="900">
+
+- in the file share *containershare*, you should see the *Courses.json*
+<img src="/pictures/using_secrets.png" title="using secrets"  width="900">
