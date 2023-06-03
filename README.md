@@ -60,9 +60,9 @@ az container create --resource-group alexeirg --file containersdb.yml
 
 ### Deploying the application
 
-- on the ubuntu command prompt, cd to the folder containing *containersdb.yml* and run
+- on the ubuntu command prompt, cd to the folder containing *containersapp.yml* and run
 ```
-cd /mnt/c/source/.../path/to/folder/.../containersdb.yml
+cd /mnt/c/source/.../path/to/folder/.../containersapp.yml
 az container create --resource-group alexeirg --file containersapp.yml
 ```
 
@@ -133,7 +133,24 @@ az container create --resource-group alexeirg --file useOfSecrets\containers.yml
 
 ### Deploying app and database service
 
+- on the *Workloads* section, create with *deploying_nginx\app.yml* and *deploying_nginx\mysql.yml*
+<img src="/pictures/app_service.png" title="app and service"  width="900">
+
+- you should see the services running
+<img src="/pictures/app_service2.png" title="app and service"  width="900">
+
+### kubectl tool
+
 - run 
 ```
-az container create --resource-group alexeirg --file deploying_nginx\containersapp.yml
+az aks get-credentials --resource-group alexeikubernetes --name appcluster
+kubectl get nodes
+kubectl get pods
+kubectl get deployments
+kubectl get service
 ```
+
+### Azure Kubernetes Logging
+
+- run the commands in *kubernetes_logging\commands.txt*
+
