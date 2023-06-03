@@ -115,3 +115,10 @@ az container create --resource-group alexeirg --file useOfSecrets\containers.yml
 
 ### Deploying an Azure Kubernetes Cluster
 
+- create a *Kubernetes Cluster*. Choose the right registry.
+<img src="/pictures/kubernetes_cluster.png" title="kubernetes cluster"  width="900">
+
+### Deploying an Nginx server
+
+- on the *Workloads* section, 
+<img src="/pictures/kubernetes_nginx.png" title="kubernetes nginx"  width="900">
