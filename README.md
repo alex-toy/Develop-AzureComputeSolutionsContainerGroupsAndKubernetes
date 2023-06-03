@@ -71,3 +71,5 @@ az container create --resource-group alexeirg --file containersapp.yml
 
 - and the app should be working and be able to retrieve data from the database
 <img src="/pictures/container_group3.png" title="container group"  width="900">
+
+### Persisting data
